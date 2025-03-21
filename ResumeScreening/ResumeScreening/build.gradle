@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'  // Use the latest version
+    id 'io.spring.dependency-management' version '1.1.3'
+    id 'application'
+}
+
+
+application {
+    mainClass = 'com.app.resumeScreening.ResumeScreeningApplication' // Replace with your actual main class
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))  // Ensure it matches your installed JDK
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Additional Libraries
+    implementation 'org.apache.opennlp:opennlp-tools:2.5.3'
+    implementation 'org.apache.tika:tika-parsers-standard-package:2.9.1'
+    implementation 'org.apache.tika:tika-core:2.9.1'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.app.resumeScreening.ResumeScreeningApplication'
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

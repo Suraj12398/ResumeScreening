@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Screening</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="heading">Resume Screening App</h1>
+    
+    <label for="resumeFiles">Upload Resumes:</label>
+    <input type="file" id="resumeFiles" multiple>
+    <br><br>
+
+    <label for="mustKnowSkills">Must Know Skills (e.g., Java:10, Spring:5):</label>
+    <!-- <input type="text" id="mustKnowSkills" placeholder="Java:10, Spring:5"> -->
+
+    <textarea id="mustKnowSkills" placeholder="Enter Must Know Skills" oninput="resizeTextarea(this)"></textarea>
+    <br><br>
+
+  
+    
+
+
+    <label for="betterToKnowSkills">Better to Know Skills (e.g., React:3, Docker:2):</label>
+    <!-- <input type="text" id="betterToKnowSkills" placeholder="React:3, Docker:2"> -->
+
+    <textarea id="betterToKnowSkills" placeholder="Enter Better to Know Skills" oninput="resizeTextarea(this)"></textarea>
+    <br><br>
+
+    <button onclick="uploadFiles()" id="uploadButton">Results</button>
+
+    <button id="downloadReportBtn" style="display: none;" onclick="downloadReport()">Download Report</button>
+
+    <div id="result"></div>
+
+    
+
+    
+    <script src="rendered.js"></script>
+</body>
+</html>
